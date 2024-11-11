@@ -1,0 +1,16 @@
+{
+    "veiculos": [
+        {
+            "modelo": "GOL",
+            "placa": "FFF-7616",
+            "proprietario": "LEONARDO",
+            "tipo_veiculo": "CARRO"
+        },
+        {
+            "modelo": "honda civic",
+            "placa": "BBB-1803",
+            "proprietario": "pedro",
+            "tipo_veiculo": "carro"
+        }
+    ]
+}
