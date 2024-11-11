@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle</title>
+    <link rel="stylesheet" href="dash.css">
+</head>
+<body>
+    <header>
+        <h1>Painel de Veículos</h1>
+        <a href="login.html" class="button logout-button" id="logout-button">Logout</a>
+    </header>
+    
+    <div id="vehicle-info">
+        <h2>Informações do Veículo:</h2>
+        <ul>
+            <li><strong>ID:</strong> <span id="vehicle-id"></span></li>
+            <li><strong>Modelo:</strong> <span id="vehicle-model"></span></li>
+            <li><strong>Proprietário:</strong> <span id="vehicle-owner"></span></li>
+        </ul>
+    </div>
+    
+    <main class="container">
+        <div class="button-container">
+            <button id="vehicle-button" class="button">Lista de Veículos Disponíveis</button>
+            <div id="vehicle-list" class="hidden">
+                <h2>Veículos Disponíveis:</h2>
+                <ul id="vehicles"></ul>
+            </div>
+            <a href="cadastrar-veiculo.html" class="button">Cadastrar Novo Veículo</a>
+        </div>
+    </main>
+    
+    <script src="dash.js"></script>
+</body>
+</html>
