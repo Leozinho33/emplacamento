@@ -1,0 +1,62 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Veículo</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Veículo</h1>
+        <form id="registerForm">
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" required>
+            
+            <label for="placa">Placa:</label>
+            <input type="text" id="placa" required>
+            
+            <label for="proprietario">Proprietário:</label>
+            <input type="text" id="proprietario" required>
+            
+            <label for="tipoVeiculo">Tipo de Veículo:</label>
+            <select id="tipoVeiculo" required>
+                <option value="Carro">Carro</option>
+                <option value="Moto">Moto</option>
+                <option value="Caminhão">Caminhão</option>
+            </select>
+
+            <input type="submit" value="Cadastrar Veículo">
+        </form>
+        <p>Já tem um cadastro? <a href="consultar-veiculo.html">Consultar veículo</a></p>
+    </div>
+
+    <script>
+        const form = document.getElementById('registerForm');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const modelo = document.getElementById('modelo').value;
+            const placa = document.getElementById('placa').value;
+            const proprietario = document.getElementById('proprietario').value;
+            const tipoVeiculo = document.getElementById('tipoVeiculo').value;
+
+            const response = await fetch('http://localhost:3000/cadastrar-veiculo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ modelo, placa, proprietario, tipo_veiculo: tipoVeiculo })
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                alert('Cadastro de veículo bem-sucedido: ' + result.message);
+                window.location.href = 'consultar-veiculo.html'; // Redireciona para a página de consulta após o cadastro
+            } else {
+                alert('Erro ao cadastrar veículo. Tente novamente.');
+            }
+        });
+    </script>
+</body>
+</html>
